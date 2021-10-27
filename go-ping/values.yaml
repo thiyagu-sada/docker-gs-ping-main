@@ -47,7 +47,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: go-ping.demo
+    - host: go-ping.demo.apps.anzocp4start.apac-1.rht-labs.com
       paths:
         - path: /
           pathType: ImplementationSpecific
