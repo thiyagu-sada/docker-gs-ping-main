@@ -40,6 +40,10 @@ service:
   type: ClusterIP
   port: 80
 
+route:
+  enabled: true
+  host: go-ping.demo.apps.anzocp4start.apac-1.rht-labs.com
+
 ingress:
   enabled: true
   className: ""
