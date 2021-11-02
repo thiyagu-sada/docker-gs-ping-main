@@ -1,13 +1,13 @@
+{{ if ne .Values.env "local" }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: conf-map
 data:
   application-config.yaml: |-
-    library:
-      log:
-        format: {{ .Values.log.level }}
-        level: info
-    genCode:
-      upstream:
-        contextTimeout: 120s
+{{ tpl ( .Files.Get "application-config.yaml" ) . | printf "%s" | indent 4 }}
+{{- end }}
+{{- if eq .Values.env "local" }}
+{{ tpl ( .Files.Get "application-config.yaml" ) . | printf "%s" }}
+{{- end }}
+
